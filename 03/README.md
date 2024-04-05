@@ -3,13 +3,9 @@ The deployment process involves pulling a Docker image from a container registry
 
 ## Save as github secrets
 > [!IMPORTANT]
-> Make sure not to hard code any credentials 
+> Make sure not to hard code any credentials
 
-1. Credentials for docker hub:
-    - DOCKER_USERNAME 
-    - DOCKERHUB_TOKEN
-
-2. Credentials for AWS
+1. Credentials for AWS
     - AWS_ACCESS_KEY_ID
     - AWS_SECRET_ACCESS_KEY
 
