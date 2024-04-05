@@ -4,7 +4,7 @@ resource "tls_private_key" "my_private_key" {
 }
 
 resource "aws_key_pair" "key_pair" {
-  key_name   = "key_pair_task01"  
+  key_name   = "my_key_pair"  
   public_key = tls_private_key.pk.public_key_openssh
 
   provisioner "local-exec" {
