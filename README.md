@@ -8,12 +8,13 @@ In this repository, you'll find various folders containing Terraform configurati
 Each folder represents a different scenario or project where Terraform is utilized to provision and manage infrastructure resources on AWS.
 
 ## Folder Structure
-
-├── 01
-│   └── file.tf (Terraform configuration files)
-│   └── README.md
-├── 02
-└── 03
+```
+├── 01/
+│   └── file.tf (Terraform configuration files)
+│   └── README.md
+├── 02/
+└── 03/
+```
 
 ## Getting Started
 
