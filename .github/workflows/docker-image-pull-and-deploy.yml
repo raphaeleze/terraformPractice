@@ -1,0 +1,60 @@
+name: Deploy-Docker-Image
+on:
+  push:
+    branches: 
+      - main
+      - 03/ci/version
+jobs:
+  deploy-to-eks:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        uses: actions/download-artifact@v2
+        with:
+          name: app-deployment
+          path: 03/eks/    
+
+      # Install AWS CLI
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y awscli
+
+      # Install kubectl
+      - name: Install kubectl
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y kubectl
+      
+      # Configure AWS credentials (this is done because aws-actions/configure-aws-credentials@v4 isnt allowed on repo)
+      - name: Configure AWS credentials
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
+        run: |
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+          aws configure set aws_session_token $AWS_SESSION_TOKEN
+          aws configure set region us-east-1 
+
+      # Set EKS Cluster
+      - name: Set EKS Cluster
+        env:
+          EKS_CLUSTER_NAME: ${{ secrets.EKS_CLUSTER_NAME }}
+        run: |
+          aws eks update-kubeconfig --region us-east-1 --name $EKS_CLUSTER_NAME
+
+      # Deploy your application and service
+      - name: Deploy microblog application and service
+        run: kubectl apply -f 03/eks/app-deployment.yml  
+        
+      # Wait for loadbalancer to provision and assign public IP to your app
+      - name: Wait for LoadBalancer
+        run: sleep 20
+        
+      # Get external IP for your-app-service created by the load balancer
+      - name: Get external IP for your-app-service
+        run: kubectl get service your-app-service
