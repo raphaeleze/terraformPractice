@@ -3,7 +3,9 @@ on:
   push:
     branches: 
       - main
-      - 03/ci/version
+    # Only run the workflow for the main branch in the path 04/ci/version
+    paths:
+      - 04/ci/version  
 jobs:
   deploy-to-eks:
     runs-on: ubuntu-latest
