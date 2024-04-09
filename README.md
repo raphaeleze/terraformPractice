@@ -2,6 +2,9 @@
 
 This repository serves as a workspace for practicing Terraform and managing infrastructure as code (IaC) using HashiCorp's Terraform tool.
 
+> [!IMPORTANT]
+> As the number of the folder increases   so does the complexity so make sure to read each folders ReadMe file
+
 ## Overview
 
 In this repository, you'll find various folders containing Terraform configurations (`*.tf`) along with associated files and modules. 
