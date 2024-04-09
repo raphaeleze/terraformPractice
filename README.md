@@ -2,7 +2,7 @@
 
 This repository serves as a workspace for practicing Terraform and managing infrastructure as code (IaC) using HashiCorp's Terraform tool.
 
-> [!IMPORTANT]
+> [!NOTE]
 > As the number of the folder increases   so does the complexity so make sure to read each folders ReadMe file
 
 ## Overview
