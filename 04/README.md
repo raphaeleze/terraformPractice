@@ -1,15 +1,17 @@
 # AWS EC2 Instance Terraform Module
 
-This repository contains a Terraform module that creates an AWS EC2 instance using the module sourced from [this repository](https://github.com/raphaeleze/terrafromModules/tree/main/Aws-Ec2).
+## Overview
 
-## Variables
+This repository contains a Terraform module that creates an AWS EC2 instance. The module is sourced from [this repository](https://github.com/raphaeleze/terrafromModules/tree/main/Aws-Ec2). 
 
-- `awsRegion`: The AWS region where the EC2 instance will be created. Default is "us-east-1".
-- `ami`: The Amazon Machine Image (AMI) that will be used to launch the EC2 instance. Default is "ami-0f403e3180720dd7e".
-- `instance_type`: The type of instance to start. Default is "t2.micro".
+The module allows you to specify the AWS region, the Amazon Machine Image (AMI), and the instance type for the EC2 instance. By default, it creates a `t2.micro` instance in the `us-east-1` region using the AMI `ami-0f403e3180720dd7e`.
 
-## Requirements
+## Usage
 
-- Terraform 0.12 or later
-- AWS provider
-```
+To use this module in your Terraform configuration, first ensure that you have Terraform 0.12 or later and the AWS provider installed.
+
+Next, include the module in your Terraform configuration file (`main.tf`) or clone this repo abd cd to the folder
+
+You can replace the awsRegion, ami, and instance_type values with your desired AWS region, AMI, and instance type, respectively.
+
+Finally, run terraform init to initialize your Terraform configuration, and then terraform apply to create the EC2 instance.
