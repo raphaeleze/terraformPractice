@@ -6,6 +6,7 @@ on:
     # Only run the workflow for the main branch in the path 04/ci/version
     paths:
       - 04/ci/version  
+  workflow_dispatch:   
 jobs:
   deploy-to-eks:
     runs-on: ubuntu-latest
