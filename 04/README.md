@@ -1,4 +1,4 @@
-# AWS EC2 Instance Terraform Module
+# Terraform Modules
 
 ## Overview
 
@@ -8,7 +8,9 @@ This repository contains:
 - Terraform module that creates an AWS EKS cluster. The module is sourced from [terraform registory](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest). 
 
 
-The module allows you to specify the AWS region, the Amazon Machine Image (AMI), and the instance type for the EC2 instance. By default, it creates a `t2.micro` instance in the `us-east-1` region using the AMI `ami-0f403e3180720dd7e`.
+The Ec2 module allows you to specify the AWS region, the Amazon Machine Image (AMI), and the instance type for the EC2 instance. By default, it creates a `t2.micro` instance in the `us-east-1` region using the AMI `ami-0f403e3180720dd7e`.
+
+All modules can be adapted to your requirements
 
 ## Usage
 
